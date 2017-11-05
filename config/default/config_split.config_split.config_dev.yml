@@ -1,0 +1,16 @@
+uuid: 92940386-b4cc-42dc-940c-d374de7959db
+langcode: en
+status: false
+dependencies: {  }
+id: config_dev
+label: 'Development config'
+folder: ../config/config_dev
+module:
+  devel: 0
+  kint: 0
+theme: {  }
+blacklist: {  }
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true
+weight: 0

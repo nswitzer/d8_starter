@@ -16,3 +16,7 @@ This project uses Amazee's Cachalot local environment. To get started with Cacha
 5. You should be redirected to the homepage if everything went correctly. If you get errors, you can try checking the homepage to see if it worked anyway.
 6. Open your newly created `settings.php` file and copy the value of `$settings['hash_salt]` into your original `settings.php` file.
 7. Once you've updated `$settings['hash_salt]` in your original `settings.php` file, delete the new one and rename your original back to `settings.php`.
+
+## Dependencies
+1. [NVM](https://github.com/creationix/nvm) - Node Version Manager
+2. [Composer](https://getcomposer.org/) - PHP package manager

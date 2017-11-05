@@ -12,7 +12,7 @@ $config_directories = array(
 /**
  * Hash salt used for one-time login links, etc.
  */
-$settings['hash_salt'] = 'ZDKkQxVPRT1754DOHetrX86m_pagksVNvImJZsNlGIoto2V5VRBtQeRCnVNWYRFMBwPenG0GgQ';
+$settings['hash_salt'] = 'E8twojMXtPzjarUs_dx0QubeO1XBaL5G95AErnGMWaRAjgePHUigY-6ZqZzE5uwabuCtgKncgA';
 
 /**
  * Access control for update.php script.
@@ -79,16 +79,13 @@ $settings['install_profile'] = 'standard';
 // and any additional version thereof.
 // Additional env specific patterns can be added in the following files (drupalvm, local)
 $settings['trusted_host_patterns'] = array(
-  '^e3develop\.com$',
-  '^.+\.e3develop\.com$',
-  '^e3staging\.com$',
-  '^.+\.e3staging\.com$',
+  '^.+\.amazee\.io$',
 );
 
 // Set default paths to public, private and temp directories.
 $settings['file_public_path'] = 'sites/default/files';
-$settings['file_private_path'] = '../private';
-$config['system.file']['path']['temporary'] = '../private/tmp';
+$settings['file_private_path'] = 'sites/default/files/private';
+$config['system.file']['path']['temporary'] = 'sites/default/files/private/tmp';
 
 // Remove shield print message by default.
 $config['shield.settings']['print'] = '';
@@ -126,4 +123,16 @@ elseif (file_exists(__DIR__ . '/settings.drupalvm.php')) {
 // If local settings file exists, load it.
 if(file_exists(__DIR__ . '/settings.local.php')) {
   include __DIR__ . '/settings.local.php';
+}
+
+if(getenv('AMAZEEIO_SITENAME')){
+  $databases['default']['default'] = array(
+    'driver' => 'mysql',
+    'database' => getenv('AMAZEEIO_SITENAME'),
+    'username' => getenv('AMAZEEIO_DB_USERNAME'),
+    'password' => getenv('AMAZEEIO_DB_PASSWORD'),
+    'host' => getenv('AMAZEEIO_DB_HOST'),
+    'port' => getenv('AMAZEEIO_DB_PORT'),
+    'prefix' => '',
+  );
 }
